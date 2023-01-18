@@ -15,6 +15,9 @@ npx prisma init --datasource-provider sqlite
 ```bash
 npx prisma db push
 ```
+```bash
+npx nodemon src/index.ts
+```
 
 ## Integrantes
 - [Jhon Lucas Garcia](https://github.com/GarciaJhonLucas)
