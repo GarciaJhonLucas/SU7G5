@@ -1,0 +1,11 @@
+express
+dotenv
+cors
+express-validator
+@prisma/client
+-D typescript
+-D @types/node
+-D @types/express
+-D @types/dotenv
+-D @types/cors
+--save-dev prisma esbuild-register nodemon
