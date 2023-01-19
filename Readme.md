@@ -9,6 +9,11 @@ API REST creando con las tecnologias mostradas
 - Express
 
 ## Modo de uso
+- Cambiar la el nombre del archivo env a .env
+- Luego ejecutar los siguientes comandos en su terminal
+```bash
+npm install
+```
 ```bash
 npx prisma init --datasource-provider sqlite
 ```
@@ -16,7 +21,10 @@ npx prisma init --datasource-provider sqlite
 npx prisma db push
 ```
 ```bash
-npx nodemon src/index.ts
+npm build
+```
+```bash
+npm start
 ```
 
 ## Integrantes
