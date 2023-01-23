@@ -22,6 +22,11 @@ type playlist = {
     name: string;
 }
 
+type _PlaylistToSong = {
+    A: number;
+    B: number;
+}
+
 async function seed() {
     await Promise.all(
         getUsers().map((user) => {

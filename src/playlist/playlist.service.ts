@@ -49,7 +49,7 @@ export const createPlaylist = async (play: Omit<play, 'id'>): Promise<play> => {
     })
 }
 
-// Update User
+// Update playlist
 export const updatePlaylist = async (user: Omit<play, 'id'>, id:number): Promise<play> => {
     const { name, userId } = user;
     return db.playlist.update({
@@ -69,7 +69,7 @@ export const updatePlaylist = async (user: Omit<play, 'id'>, id:number): Promise
 }
 
 
-// Delete playlist
+// Delete playlist with id
 export const deletePlaylist = async (id:number): Promise<void> => {
     await db.playlist.delete({
         where: {

@@ -35,6 +35,7 @@ URL: http://localhost:5000/api/v1/users/Id
 
 Method: POST
 URL: http://localhost:5000/api/v1/users
+URL: http://localhost:5000/api/v1/users/login
 
 Method: PUT
 URL: http://localhost:5000/api/v1/users/Id

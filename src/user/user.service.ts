@@ -16,7 +16,7 @@ export const listUsers = async (): Promise<user[]> => {
             name: true,
             email: true,
             password: true,
-            date_born:true
+            date_born: true
         }
     })
 }
@@ -44,7 +44,7 @@ export const createUser = async (user: Omit<user, 'id'>): Promise<user> => {
         data: {
             email,
             name,
-            password:hash,
+            password: hash,
         },
         select: {
             id: true,
@@ -56,7 +56,7 @@ export const createUser = async (user: Omit<user, 'id'>): Promise<user> => {
 }
 
 // Update User
-export const updateUsers = async (user: Omit<user, 'id'>, id:number): Promise<user> => {
+export const updateUsers = async (user: Omit<user, 'id'>, id: number): Promise<user> => {
     const { email, name, password } = user;
     return db.users.update({
         where: {
@@ -78,10 +78,21 @@ export const updateUsers = async (user: Omit<user, 'id'>, id:number): Promise<us
 
 
 // Delete users
-export const deleteUsers = async (id:number): Promise<void> => {
+export const deleteUsers = async (id: number): Promise<void> => {
     await db.users.delete({
         where: {
             id,
         },
+    })
+}
+
+
+// login
+export const userLogin = async (userLogin: Omit<user, 'id'>): Promise<user | null> => {
+    const { email } = userLogin;
+    return db.users.findUnique({
+        where: {
+            email,
+        }
     })
 }
