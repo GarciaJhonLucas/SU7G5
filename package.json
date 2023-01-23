@@ -21,14 +21,14 @@
   "description": "API REST creando con las tecnologias mostradas",
   "version": "1.0.0",
   "main": "index.js",
-  "prisma":{
-    "seed":"node --require esbuild-register prisma/seed.ts"
+  "prisma": {
+    "seed": "node --require esbuild-register prisma/seed.ts"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
     "start": "node src/index.ts",
-    "dev":"nodemon src/index.ts"
+    "dev": "nodemon src/index.ts"
   },
   "repository": {
     "type": "git",

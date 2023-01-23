@@ -1,5 +1,6 @@
-import { type } from "os";
 import { db } from "../src/utils/db.server";
+var bcrypt = require('bcryptjs');
+var salt = bcrypt.genSaltSync(10);
 
 type user = {
     email: string
@@ -14,7 +15,7 @@ type song = {
     year: number;
     genre: string;
     duration: number;
-    playlistid: number
+    isPublic: boolean
 }
 
 type playlist = {
@@ -33,6 +34,7 @@ async function seed() {
             })
         })
     );
+    
     await Promise.all(
         getPlaylists().map((playlist) => {
             return db.playlist.create({
@@ -43,6 +45,7 @@ async function seed() {
             })
         })
     );
+
     await Promise.all(
         getSongs().map((song) => {
             return db.song.create({
@@ -53,7 +56,7 @@ async function seed() {
                     year: song.year,
                     genre: song.genre,
                     duration: song.duration,
-                    playlistid: song.playlistid,
+                    isPublic: song.isPublic,
                 },
             })
         })
@@ -64,9 +67,9 @@ seed();
 
 function getUsers() {
     return [{
-        email: 'hola@as.com',
-        name: 'example-admin',
-        password: 'silabuz123',
+        email: 'hello@admin.com',
+        name: 'admin',
+        password: bcrypt.hashSync("admin", salt), // Password es admin
     }]
 }
 
@@ -84,6 +87,6 @@ function getSongs(): Array<song> {
         year: 2015,
         genre: 'Regueaton',
         duration: 520,
-        playlistid: 1
+        isPublic: true,
     }]
 }
